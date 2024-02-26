@@ -1,8 +1,11 @@
-#include <iostream>
-#include <cstring>
-int main (){
-    std::cout << "hi" << "\n";
-    std::cout << "hello";
+#include "Computer.h"
+
+char Computer::makeMove(){
+    return 'R';
+}
+
+std::string Computer::getName(){
+    return "Computer";
 }
 
 
