@@ -19,9 +19,5 @@ int main() {
         std::cout << winner->getName() << " Wins." << std::endl;
     }
 
-    // Cleanup dynamically allocated memory
-    delete human;
-    delete computer;
-
     return 0;
 }
