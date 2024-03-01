@@ -14,3 +14,4 @@ char Human::makeMove() {
 std::string Human::getName(){
     return name;
 }
+   
