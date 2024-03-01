@@ -3,16 +3,15 @@
 Referee::Referee() {}
 
 Player* Referee::refGame(Player* player1, Player* player2) {
-    char move1 = player1->makeMove();
-    char move2 = player2->makeMove();
+    Move* move1 = player1->makeMove();
+    Move* move2 = player2->makeMove();
 
-    if (move1 == move2)
-        return nullptr; // Tie
-
-    if ((move1 == 'R' && move2 == 'S') || 
-        (move1 == 'S' && move2 == 'P') || 
-        (move1 == 'P' && move2 == 'R'))
+    if (move1->compare(move2)) {
         return player1; // Player 1 wins
-
+    } else if (move2->compare(move1)) {
+        return player2; // Player 2 wins
+    } else {
+        return nullptr; // Tie
+    }
     return player2; // Player 2 wins
 }

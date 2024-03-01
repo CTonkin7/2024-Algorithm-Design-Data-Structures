@@ -1,10 +1,10 @@
 
 //BRANCH 2
-
+#include "Rock.h"
 #include "Computer.h"
 
-char Computer::makeMove(){
-    return 'R';
+Move* Computer::makeMove(){
+    return new Rock();
 }
 
 std::string Computer::getName(){

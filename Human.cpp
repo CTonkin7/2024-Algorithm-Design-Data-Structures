@@ -4,8 +4,8 @@
 
 Human::Human(std::string name) : name(name) {}
 
-char Human::makeMove() {
-    char move;
+Move* Human::makeMove() {
+    Move* move;
     std::cout << "Enter move: ";
     std::cin >> move;
     return move;

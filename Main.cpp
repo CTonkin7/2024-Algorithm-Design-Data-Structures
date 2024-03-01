@@ -5,7 +5,7 @@
 
 int main() {
     // Create human and computer players, and a referee
-    Player* human = new Human("Mei");
+    Player* human = new Human("Player_1");
     Player* computer = new Computer();
     Referee referee;
 
