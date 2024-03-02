@@ -10,7 +10,7 @@
 
 
 Move* Computer::makeMove(){
-    return new Ninja();
+    return new Rock();
 }
 
 std::string Computer::getName(){
