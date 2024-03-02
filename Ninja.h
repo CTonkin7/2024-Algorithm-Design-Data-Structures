@@ -1,10 +1,10 @@
-#ifndef SCISSORS_H
-#define SCISSORS_H
+#ifndef NINJA_H
+#define NINJA_H
 #include "Move.h"
 
-class Scissors : public Move {
+class Ninja : public Move {
     public:
-        Scissors();
+        Ninja();
         std::string getName() override;
         bool compare(Move* other) override;
 };
