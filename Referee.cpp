@@ -13,6 +13,5 @@ Player* Referee::refGame(Player* player1, Player* player2) {
         (move1 == 'S' && move2 == 'P') || 
         (move1 == 'P' && move2 == 'R'))
         return player1; // Player 1 wins
-
     return player2; // Player 2 wins
 }
