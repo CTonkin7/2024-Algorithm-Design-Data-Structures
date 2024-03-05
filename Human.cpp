@@ -2,7 +2,6 @@
 #include <iostream>
 
 Human::Human(std::string name) : name(name) {}
-
 char Human::makeMove() {
     char move;
     std::cout << "Enter move: ";
