@@ -1,3 +1,7 @@
+// This code was written by Caleb Tonkin (a1850062)
+// Collaboration with Ben Butler (a1852044)
+
+
 #include "Computer.h"
 #include "Rock.h"
 #include "Paper.h"
