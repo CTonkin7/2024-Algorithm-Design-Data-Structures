@@ -4,9 +4,10 @@
 #include "Truckloads.h"
 
 int main(){
-    int numCrates = 15;
-    int loadSize = 1;
+    int numCrates = 1024;
+    int loadSize = 5;
     Truckloads t;
-    std::cout << "Number of trucks: " << t.numTrucks(numCrates, loadSize) << std::endl;
+    int numTrucks = t.numTrucks(numCrates, loadSize);
+    std::cout << "Number of trucks: " << numTrucks << std::endl;
 
 }
