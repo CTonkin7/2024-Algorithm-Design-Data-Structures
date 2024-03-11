@@ -15,7 +15,7 @@ int Reverser::reverseDigit(int value){
 
         while(temp > 0){ 
             temp = temp / 10; 
-            numDigits++;    // This wile loop counts the number of digits in reversedRemaining
+            numDigits++;    // This while loop counts the number of digits in reversedRemaining
         }
         return (lastDigit * pow(10, numDigits)) + reversedRemaining; // returns the reversed number
     }
