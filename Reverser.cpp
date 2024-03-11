@@ -4,7 +4,6 @@
 #include <cmath>
 
 int Reverser::reverseDigit(int value){
-    int reversedNumber = 0; 
     if(value<10){
         return value;
     } else {
