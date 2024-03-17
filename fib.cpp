@@ -3,9 +3,8 @@
 #include "fib.h"
 
 int fib::fibSum(int n) {
-    static std::vector<int> fib_values = {0,1};
-
-    if (n >= fib_values.size()) {
+    static std::vector<int> fib_values = {0,1}; //creating fib_values vector
+    if (n >= fib_values.size()) {// if we dont have fib(n) already, increase size of vector
         fib_values.resize(n+1);
     }
     if (n<=1){
@@ -17,6 +16,6 @@ int fib::fibSum(int n) {
     //otherwise calculate the value and add to vector
     int value = fibSum(n - 1) + fibSum(n - 2);
     fib_values.at(n) = value;
-    
+
     return value;
 }
