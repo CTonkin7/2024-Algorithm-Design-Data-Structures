@@ -5,7 +5,7 @@
 
 class GCD {
     public:
-    int gcd(int a, int b);
+    int gcd(int a, int b, int acc);
 };
 
 #endif

@@ -1,7 +1,7 @@
-#include "pattern.h"
+#include "power.h"
 #include <iostream>
 
 int main() {
-    pattern p;
-    std::cout << p.sum(6);
+    power a;
+    std::cout << a.pow(10,3,1);
 } 

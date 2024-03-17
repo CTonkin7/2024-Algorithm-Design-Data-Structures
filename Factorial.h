@@ -5,7 +5,7 @@
 
 class Factorial {
 public:
-    int factorial(int n);
+    int factorial(int n, int accumulator = 1);
 };
 
 #endif
