@@ -1,7 +1,10 @@
-#include "power.h"
+#include "fib.h"
 #include <iostream>
 
 int main() {
-    power a;
-    std::cout << a.pow(10,3,1);
-} 
+    std::cout << "enter n: ";
+    int n;
+    std::cin >> n;
+    fib result;
+    std::cout << result.fibSum(n) << std::endl;
+    } 
