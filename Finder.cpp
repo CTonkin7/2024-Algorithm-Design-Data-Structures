@@ -8,19 +8,19 @@ using namespace std;
 vector<int> Finder::findSubstrings(string s1, string s2) {
     vector<int> result;
 
-    size_t maxIndex = 0; // Track the maximum index found
-
+     // Track the maximum index found
+    size_t index = 0;
     for (size_t i = 1; i <= s2.size(); ++i) {
-        string prefix = s2.substr(0, i);
-        size_t found = s1.find(prefix, maxIndex); // Start search from the max index found
-
+        std::string prefix = s2.substr(0, i);
+        size_t found = s1.find(prefix, index); // Start search from the max index found
+        
         if (found != string::npos) {
             result.push_back(found);
-            maxIndex = found + 1; // Update max index found
-            break;
+            //index = found + 1;
+            continue;
         } else {
             result.push_back(-1);
-            break;  // No need to search further for this prefix
+            continue;  // No need to search further for this prefix
         }
     }
 
