@@ -17,6 +17,7 @@ vector<int> Finder::findSubstrings(string s1, string s2) {
         if (found != string::npos) {
             result.push_back(found);
             maxIndex = found + 1; // Update max index found
+            break;
         } else {
             result.push_back(-1);
             break;  // No need to search further for this prefix
