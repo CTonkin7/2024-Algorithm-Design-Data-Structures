@@ -13,6 +13,7 @@ vector<int> Finder::findSubstrings(string s1, string s2) {
     for (size_t i = 1; i <= s2.size(); ++i) {
         std::string prefix = s2.substr(0, i);
         size_t index = 0;
+
         while (index < s1.size()) {
             size_t found = s1.find(prefix, index);
             if (found != string::npos) {
@@ -20,6 +21,7 @@ vector<int> Finder::findSubstrings(string s1, string s2) {
                 index = found + 1;
                 break;  // Start searching from the next character
             } else {
+                result.push_back(-1);
                 break;  // No need to search further for this prefix
             }
         }
