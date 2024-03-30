@@ -2,8 +2,8 @@
 
 std::vector<int> BubbleSort::sort(std::vector<int> list) {
     int n = list.size();
-    bool swapped;
-    do {
+    bool swapped = true;
+    while (swapped) {
         swapped = false;
         for (int i = 1; i < n; ++i) {
             if (list[i - 1] > list[i]) {
@@ -12,6 +12,6 @@ std::vector<int> BubbleSort::sort(std::vector<int> list) {
             }
         }
         --n;
-    } while (swapped);
+    }
     return list;
 }
