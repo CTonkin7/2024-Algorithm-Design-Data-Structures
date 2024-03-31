@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <string>
 #include "QuickSort.h"
 #include "RecursiveBinarySearch.h"
 
 int main() {
     std::string input;
+    std::cout << "Enter a list of integers separated by space: ";
     std::getline(std::cin, input);
 
     std::istringstream iss(input);

@@ -6,10 +6,10 @@
 class QuickSort : public Sort {
 public:
     std::vector<int> sort(std::vector<int> list) override;
+
 private:
     void quicksort(std::vector<int>& list, int low, int high);
-    int choosePivot(std::vector<int>& list, int low, int high);
     int partition(std::vector<int>& list, int low, int high);
 };
 
-#endif 
+#endif // QUICKSORT_H
