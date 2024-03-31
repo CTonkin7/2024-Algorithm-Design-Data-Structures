@@ -1,16 +1,30 @@
 #include <iostream>
-#include "BubbleSort.h"
+#include <vector>
+#include <sstream>
+#include "QuickSort.h"
+#include "RecursiveBinarySearch.h"
 
 int main() {
-    std::vector<int> unsorted = {1,10,20,7,-1,4};
-    
-    // Using Bubble Sort
-    BubbleSort bubbleSort;
-    std::vector<int> sorted = bubbleSort.sort(unsorted);
-    
-    // Displaying sorted vector
-    std::cout << "Sorted array using Bubble Sort: ";
-    for (int num : sorted) {
+    std::string input;
+    std::cout << "Enter a list of integers separated by space: ";
+    std::getline(std::cin, input);
+
+    std::istringstream iss(input);
+    std::vector<int> nums;
+    int num;
+    while (iss >> num) {
+        nums.push_back(num);
+    }
+
+    QuickSort quickSort;
+    RecursiveBinarySearch binarySearch;
+
+    std::vector<int> sortedList = quickSort.sort(nums);
+
+    bool foundOne = binarySearch.search(sortedList, 1);
+
+    std::cout << (foundOne ? "true" : "false") << " ";
+    for (int num : sortedList) {
         std::cout << num << " ";
     }
     std::cout << std::endl;

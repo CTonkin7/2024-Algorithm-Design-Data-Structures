@@ -1,13 +1,14 @@
-#ifndef RECURSIVEBINARSEARCH_H
-#define RECURSIVEBINARSEARCH_H
+#ifndef RECURSIVEBINARYSEARCH_H
+#define RECURSIVEBINARYSEARCH_H
 
 #include <vector>
-#include "Sort.h"
 
-class RecursiveBinarySearch : public Sort
-{
-    public:
-    std::vector<int> sort(std::vector<int> list) override;
+class RecursiveBinarySearch {
+public:
+    bool search(std::vector<int>& nums, int target);
+
+private:
+    bool binarySearch(std::vector<int>& nums, int target, int start, int end);
 };
 
-#endif
+#endif // RECURSIVEBINARYSEARCH_H
