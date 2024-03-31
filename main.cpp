@@ -6,7 +6,6 @@
 
 int main() {
     std::string input;
-    std::cout << "Enter a list of integers separated by space: ";
     std::getline(std::cin, input);
 
     std::istringstream iss(input);
