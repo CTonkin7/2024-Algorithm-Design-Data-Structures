@@ -8,12 +8,14 @@ class LinkedList {
         Node* head;
 
     public:
-        int Linkedlist();
+        LinkedList();
         LinkedList(int* array, int len);
         ~LinkedList();
         void insertPosition(int pos, int newNum);
-        void deletePosition(int pos);
+        bool deletePosition(int pos);
         int get(int pos);
         int search(int target);
         void printList();
-}
+};
+
+#endif
