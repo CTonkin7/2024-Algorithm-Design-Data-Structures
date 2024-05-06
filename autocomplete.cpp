@@ -1,4 +1,4 @@
-#include "autocomplete.h"
+#include "Autocomplete.h"
 #include <iostream>
 
 Trie::Trie() {
