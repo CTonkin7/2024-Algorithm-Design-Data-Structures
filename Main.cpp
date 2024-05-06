@@ -1,27 +1,41 @@
 #include <iostream>
-#include "Human.h"
-#include "Computer.h"
-#include "Referee.h"
+#include "autocomplete.h"
 
 int main() {
-    // Create human and computer players, and a referee
-    Player* human = new Human("Mei");
-    Player* computer = new Computer();
-    Referee referee;
+    Autocomplete autocomplete;
+    autocomplete.insert("bin");
+    autocomplete.insert("ball");
+    autocomplete.insert("ballet");
 
-    // Referee adjudicates the game and determines the winner
-    Player* winner = referee.refGame(human, computer);
-    
-    // Output the result of the game
-    if (winner == nullptr) {
-        std::cout << "It's a Tie." << std::endl;
-    } else {
-        std::cout << winner->getName() << " Wins." << std::endl;
+    std::vector<std::string> suggestions;
+
+    suggestions = autocomplete.getSuggestions("b");
+    std::cout << "Suggestions for 'b': ";
+    for (std::string word : suggestions) {
+        std::cout << word << " ";
     }
+    std::cout << std::endl;
 
-    // Cleanup dynamically allocated memory
-    delete human;
-    delete computer;
+    suggestions = autocomplete.getSuggestions("ba");
+    std::cout << "Suggestions for 'ba': ";
+    for (std::string word : suggestions) {
+        std::cout << word << " ";
+    }
+    std::cout << std::endl;
+
+    suggestions = autocomplete.getSuggestions("bal");
+    std::cout << "Suggestions for 'bal': ";
+    for (std::string word : suggestions) {
+        std::cout << word << " ";
+    }
+    std::cout << std::endl;
+
+    suggestions = autocomplete.getSuggestions("balle");
+    std::cout << "Suggestions for 'balle': ";
+    for (std::string word : suggestions) {
+        std::cout << word << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
