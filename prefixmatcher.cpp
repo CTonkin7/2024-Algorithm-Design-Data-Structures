@@ -1,4 +1,4 @@
-#include "prefixmatcher.h"
+#include "PrefixMatcher.h"
 
 TrieNode::TrieNode() {
     children[0] = nullptr;
