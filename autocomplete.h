@@ -9,18 +9,14 @@ class TrieNode {
 public:
     std::unordered_map<char, TrieNode*> children;
     bool isEndOfWord;
-
     TrieNode() : isEndOfWord(false) {}
 };
 
 class Trie {
 public:
     TrieNode* root;
-
     Trie();
-
     void insert(std::string word);
-
     std::vector<std::string> getSuggestions(std::string partialWord);
 
 private:
@@ -30,9 +26,7 @@ private:
 class Autocomplete {
 public:
     Trie trie;
-
     void insert(std::string word);
-
     std::vector<std::string> getSuggestions(std::string partialWord);
 };
 
