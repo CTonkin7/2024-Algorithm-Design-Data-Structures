@@ -1,41 +1,16 @@
 #include <iostream>
-#include "autocomplete.h"
+#include "prefixmatcher.h"
 
 int main() {
-    Autocomplete autocomplete;
-    autocomplete.insert("bin");
-    autocomplete.insert("ball");
-    autocomplete.insert("ballet");
+    PrefixMatcher matcher(32); // Assuming IPv4, so 32 bits
+    matcher.insert("1100110111", 1);
+    matcher.insert("110011011", 2);
+    matcher.insert("11001101", 3);
 
-    std::vector<std::string> suggestions;
+    std::string networkAddress = "110011011001"; // Example incoming packet destination address
 
-    suggestions = autocomplete.getSuggestions("b");
-    std::cout << "Suggestions for 'b': ";
-    for (std::string word : suggestions) {
-        std::cout << word << " ";
-    }
-    std::cout << std::endl;
-
-    suggestions = autocomplete.getSuggestions("ba");
-    std::cout << "Suggestions for 'ba': ";
-    for (std::string word : suggestions) {
-        std::cout << word << " ";
-    }
-    std::cout << std::endl;
-
-    suggestions = autocomplete.getSuggestions("bal");
-    std::cout << "Suggestions for 'bal': ";
-    for (std::string word : suggestions) {
-        std::cout << word << " ";
-    }
-    std::cout << std::endl;
-
-    suggestions = autocomplete.getSuggestions("balle");
-    std::cout << "Suggestions for 'balle': ";
-    for (std::string word : suggestions) {
-        std::cout << word << " ";
-    }
-    std::cout << std::endl;
+    int routerNumber = matcher.selectRouter(networkAddress);
+    std::cout << "Selected router: " << routerNumber << std::endl;
 
     return 0;
 }
