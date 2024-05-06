@@ -1,4 +1,4 @@
-#include "PrefixMatcher.h"
+#include "prefixmatcher.h"
 
 TrieNode::TrieNode() {
     children[0] = nullptr;
@@ -25,7 +25,7 @@ void PrefixMatcher::insert(std::string address, int routerNumber) {
 
 int PrefixMatcher::selectRouter(std::string networkAddress) {
     TrieNode* current = root;
-    for (int i = 0; i < numBits; ++i) {
+    for (size_t i = 0; i < numBits; ++i) {
         if (!current->children[networkAddress[i] - '0']) {
             break;
         }

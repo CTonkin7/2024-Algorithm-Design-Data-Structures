@@ -17,7 +17,7 @@ private:
     int numBits;
 
 public:
-    PrefixMatcher(int numBits);
+    PrefixMatcher(int numBits = 32); // Defaulting to 32 bits for IPv4
 
     void insert(std::string address, int routerNumber);
 
