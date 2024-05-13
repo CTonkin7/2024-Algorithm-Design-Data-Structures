@@ -5,8 +5,8 @@
 #include <cmath>  // for floor
 
 template <typename T>
-class heap{
-private: 
+class Heap {
+ private: 
   std::vector<T> values;
   void heapify(int);
 
@@ -56,8 +56,23 @@ Heap<T>::Heap(std::vector<T> start_values) {
 
 template <typename T>
 void Heap<T>::insert(T value) {
-  // TODO: TO BE IMPLEMENTED
+  // Add the value to the end of the vector
+  values.push_back(value);
+  int index = values.size() - 1;
+  int parent_index;
+
+  // Percolate up
+  while (index > 0) {
+    parent_index = (index - 1) / 2;
+    if (values[index] < values[parent_index]) {
+      std::swap(values[index], values[parent_index]);
+      index = parent_index;
+    } else {
+      break;
+    }
+  }
 }
+
 
 /*******************************/
 /* delete values from the heap */
@@ -65,8 +80,24 @@ void Heap<T>::insert(T value) {
 
 template <typename T>
 void Heap<T>::remove(T value) {
-  // TODO: TO BE IMPLEMENTED
+  int indexToRemove = -1;
+  for (int i = 0; i < values.size(); i++) {
+    if (values[i] == value) {
+      indexToRemove = i;
+      break;
+    }
+  }
+
+  if (indexToRemove == -1) return;  // Value not found
+
+  // Swap with the last element and remove it
+  std::swap(values[indexToRemove], values.back());
+  values.pop_back();
+
+  // Heapify from the current index
+  heapify(indexToRemove);
 }
+
 
 /*******************************/
 // find the smallest value in the heap
@@ -74,7 +105,11 @@ void Heap<T>::remove(T value) {
 
 template <typename T>
 T Heap<T>::getMin() {
-  // TODO: TO BE IMPLEMENTED
+  if (!values.empty()) {
+    return values[0];
+  } else {
+    throw std::runtime_error("Heap is empty");
+  }
 }
 
 /*******************************/
@@ -116,6 +151,6 @@ void Heap<T>::heapify(int parent_index) {
 
   // move up the 'tree' to grandparent
   heapify(floor(parent_index / 2) - 1);
-}
+};
 
 #endif
