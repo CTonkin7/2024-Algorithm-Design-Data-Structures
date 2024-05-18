@@ -9,6 +9,7 @@ void DocumentManager::addDocument(string name, int id, int license_limit){
         return;
     }
     documents[id] = Document(name, id, license_limit);
+    name_to_id[name] = id;
 
 }
 
@@ -28,7 +29,6 @@ int DocumentManager::search(string name){
 
 bool DocumentManager::borrowDocument(int docid, int patronID){
     if(patrons.find(patronID) == patrons.end()){
-        std::cout << "Patron with id " << patronID << " does not exist" << endl;
         return false;
     }
     auto it = documents.find(docid);
@@ -37,7 +37,6 @@ bool DocumentManager::borrowDocument(int docid, int patronID){
         it->second.borrowed_by.insert(patronID);
         return true;
     }
-        std::cout << "Document with id " << docid << " is already borrowed" << endl;
         return false;
 }
 
@@ -48,8 +47,6 @@ void DocumentManager::returnDocument(int docid, int patronID){
     if (it != documents.end() && it->second.borrowed_by.find(patronID) != it->second.borrowed_by.end()){
         it->second.current_borrowed--;
         it->second.current_borrowed;
-    } else {
-        cout << "Document with id " << docid << " is not borrowed by patron with id " << patronID << endl;
-    }
+    } 
 
 }
