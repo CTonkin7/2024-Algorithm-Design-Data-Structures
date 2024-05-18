@@ -1,6 +1,6 @@
 #ifndef DOCUMENT_H
 #define DOCUMENT_H  
-#include <iostream>
+
 #include <string>
 #include <unordered_set>
 
@@ -14,7 +14,7 @@ class Document {
         int current_borrowed;
         unordered_set<int> borrowed_by;
 
-        Document(string name, int id, int license_limit);
+        Document(std::string name, int id, int license_limit);
 };
 
 #endif
