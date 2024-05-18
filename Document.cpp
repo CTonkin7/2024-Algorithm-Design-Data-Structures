@@ -1,5 +1,6 @@
 #include "Document.h"
 
+using namespace std;
 
 Document::Document(std::string name, int id, int license_limit){
     this->name = name;
@@ -9,6 +10,4 @@ Document::Document(std::string name, int id, int license_limit){
 
 }
 
-
-using namespace std;
 
