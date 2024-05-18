@@ -29,15 +29,24 @@ int DocumentManager::search(string name){
 
 bool DocumentManager::borrowDocument(int docid, int patronID){
     if(patrons.find(patronID) == patrons.end()){
+        std::cout << "Invalid patron ID: " << patronID << std::endl;
         return false;
     }
     auto it = documents.find(docid);
-    if (it!= documents.end() && it->second.current_borrowed < it->second.license_limit){
-        it->second.current_borrowed++;
-        it->second.borrowed_by.insert(patronID);
-        return true;
+    if (it != documents.end()) {
+        if (it->second.current_borrowed < it->second.license_limit) {
+            it->second.current_borrowed++;
+            it->second.borrowed_by.insert(patronID);
+            std::cout << "Document ID: " << docid << " successfully borrowed by patron ID: " << patronID << std::endl;
+            return true;
+        } else {
+            std::cout << "Document ID: " << docid << " has reached its license limit." << std::endl;
+        }
+    } else {
+        std::cout << "Document ID: " << docid << " not found." << std::endl;
     }
-        return false;
+
+    return false; // Document cannot be borrowed
 }
 
 
