@@ -10,9 +10,9 @@ using namespace std;
 
 class DocumentManager {
 private:
-    unordered_map<int, Document> documents;
-    unordered_set<int> patrons;
-    unordered_map<string, int> name_to_id;
+    std::unordered_map<int, Document> documents;
+    std::unordered_set<int> patrons;
+    std::unordered_map<std::string, int> name_to_id;
 
 public:
     void addDocument(string name, int id, int liscence_limit);

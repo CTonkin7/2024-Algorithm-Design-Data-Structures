@@ -8,11 +8,11 @@ using namespace std;
 
 class Document {
     public:
-        string name;
+        std::string name;
         int id;
         int license_limit;
         int current_borrowed;
-        unordered_set<int> borrowed_by;
+        std::unordered_set<int> borrowed_by;
 
         Document(std::string name, int id, int license_limit);
 };
