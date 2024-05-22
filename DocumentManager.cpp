@@ -3,59 +3,49 @@
 
 using namespace std;
 
-void DocumentManager::addDocument(string name, int id, int license_limit){
-    if (documents.find(id) != documents.end()){
-        std::cout << "Document with id " << id << " already exists" << endl;
-        return;
-    }
-    documents[id] = Document(name, id, license_limit);
-    name_to_id[name] = id;
-
+void DocumentManager::addDocument(const std::string& name, int id, int license_limit){
+    Document doc(name, id, license_limit);
+    documents_by_id[id] = doc;
+    documents_by_name[name] = id;
 }
 
 void DocumentManager::addPatron(int patronID){
     patrons.insert(patronID);
 }
 
-int DocumentManager::search(string name){
-    if (name_to_id.find(name) != name_to_id.end()){
-        return name_to_id[name];
+int DocumentManager::search(const std::string& name){
+    auto it = documents_by_name.find(name);
+    if (it != documents_by_name.end()){
+        return it->second;
     }
-    else {
-        // Return some default value or handle the error appropriately
-        return 0; // for example
-    }
+    return 0;
 }
 
 bool DocumentManager::borrowDocument(int docid, int patronID){
-    if(patrons.find(patronID) == patrons.end()){
-        std::cout << "Invalid patron ID: " << patronID << std::endl;
+    auto doc_it = documents_by_id.find(docid);
+    if (doc_it == documents_by_id.end() || patrons.find(patronID) == patrons.end()){
         return false;
     }
-    auto it = documents.find(docid);
-    if (it != documents.end()) {
-        if (it->second.current_borrowed < it->second.license_limit) {
-            it->second.current_borrowed++;
-            it->second.borrowed_by.insert(patronID);
-            std::cout << "Document ID: " << docid << " successfully borrowed by patron ID: " << patronID << std::endl;
-            return true;
-        } else {
-            std::cout << "Document ID: " << docid << " has reached its license limit." << std::endl;
-        }
-    } else {
-        std::cout << "Document ID: " << docid << " not found." << std::endl;
-    }
 
-    return false; // Document cannot be borrowed
+    Document& doc = doc_it->second;
+    if (doc.current_count < doc.license_limit){
+        doc.borrowed_count++;
+        borrowed_documents[patronID].insert(docid);
+        return true;
+    }
+    return false;
 }
 
 
 
 void DocumentManager::returnDocument(int docid, int patronID){
-    auto it = documents.find(docid);
-    if (it != documents.end() && it->second.borrowed_by.find(patronID) != it->second.borrowed_by.end()){
-        it->second.current_borrowed--;
-        it->second.current_borrowed;
-    } 
+    auto doc_it = documents_by_id.find(docid);
+    if (doc_it == documents_by_id.end() || patrons.find(patronID) == patrons.end()){
+        return;
+    }
+    if (borrowed_documents[patronID].find(docid) != borrowed_documents[patronID].end()){
+        doc_it->second.borrowed_count--;
+        borrowed_documents[patronID].erase(docid);
+    }
 
 }

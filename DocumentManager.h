@@ -10,14 +10,15 @@ using namespace std;
 
 class DocumentManager {
 private:
-    std::unordered_map<int, Document> documents;
+    std::unordered_map<int, Document> documents_by_id;
+    std::unordered_map<int, Document> documents_by_name;
     std::unordered_set<int> patrons;
-    std::unordered_map<std::string, int> name_to_id;
+    std::unordered_map<int, std::unordered_set<int>> borrowed_documents;
 
 public:
-    void addDocument(string name, int id, int liscence_limit);
+    void addDocument(const std::string& name, int id, int liscence_limit);
     void addPatron(int patronID);
-    int search(string name);
+    int search(const std::string& name);
     bool borrowDocument(int docid, int patronID);
     void returnDocument(int docid, int patronID);
 };

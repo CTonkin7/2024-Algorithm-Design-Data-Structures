@@ -11,8 +11,7 @@ class Document {
         std::string name;
         int id;
         int license_limit;
-        int current_borrowed;
-        std::unordered_set<int> borrowed_by;
+        int borrowed_count;
 
         Document() = default;
         Document(std::string name, int id, int license_limit);
