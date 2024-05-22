@@ -1,13 +1,12 @@
 #ifndef DOCUMENTMANAGER_H
 #define DOCUMENTMANAGER_H
 
-#include "Document.h"
 #include <unordered_map>
 #include <unordered_set>
 #include <string>
 
 using namespace std;
-class Document {
+class Document { // Document.h
     public:
         std::string name;
         int id;
