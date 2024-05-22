@@ -28,7 +28,7 @@ bool DocumentManager::borrowDocument(int docid, int patronID){
     }
 
     Document& doc = doc_it->second;
-    if (doc.current_count < doc.license_limit){
+    if (doc.borrowed_count < doc.license_limit){
         doc.borrowed_count++;
         borrowed_documents[patronID].insert(docid);
         return true;
