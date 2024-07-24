@@ -3,8 +3,6 @@
 #include "Paper.h"
 #include "Scissors.h"
 #include <iostream>
-
-
 Human::Human(std::string name) : name(name) {}
 
 Move* Human::makeMove() {
